@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shah Ji Watches | Premium Luxury Watches - Every Second Matters</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --black: #0a0a0a;
+            --gold: #D4AF37;
+            --gold-hover: #c99339;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--white);
+            color: var(--black);
+            overflow-x: hidden;
+        }
+
+        /* === Auto-Moving Top Announcement Bar === */
+        .top-bar {
+            background-color: var(--black);
+            color: var(--white);
+            border-bottom: 1px solid #222;
+            padding: 10px 0;
+            overflow: hidden;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: inline-flex;
+            gap: 50px;
+            animation: scrollText 16s linear infinite;
+        }
+
+        .marquee-content span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .marquee-content i {
+            color: var(--gold);
+            font-size: 14px;
+        }
+
+        .top-bar:hover .marquee-content {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollText {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* === Navbar === */
+        .navbar {
+            background-color: var(--black);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 5%;
+            position: relative;
+            z-index: 100;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .logo-container {
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-container a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            height: 100%;
+        }
+
+        .logo-container img {
+            max-height: 60px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        .logo-text {
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            letter-spacing: 2px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links li a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: var(--gold);
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .icon-box {
+            position: relative;
+            color: var(--white);
+            font-size: 18px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .icon-box:hover {
+            color: var(--gold);
+        }
+
+        .badge {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background-color: var(--gold);
+            color: var(--black);
+            font-size: 10px;
+            font-weight: 700;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* === Hero Slider Section === */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            overflow: hidden;
+            background-color: var(--light-gray);
+        }
+
+        .slides {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.3);
+            border: none;
+            color: var(--white);
+            font-size: 26px;
+            cursor: pointer;
+            z-index: 10;
+            padding: 12px 18px;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .arrow:hover {
+            background: rgba(0, 0, 0, 0.75);
+            color: var(--gold);
+        }
+
+        .prev-arrow {
+            left: 0;
+        }
+
+        .next-arrow {
+            right: 0;
+        }
+
+        .dots-container {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: var(--gold);
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+            transform: scale(1.15);
+        }
+
+        /* === WhatsApp Floating Button === */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--gold);
+            color: var(--black);
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+            z-index: 1000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            background-color: #e5bd3b;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Responsive View for Header & Slider */
+        @media (max-width: 900px) {
+            .nav-links {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 260px;
+                height: 100vh;
+                background-color: var(--black);
+                padding-top: 80px;
+                transition: left 0.4s ease-in-out;
+                z-index: 99;
+                box-shadow: 2px 0 15px rgba(0, 0, 0, 0.7);
+                gap: 0;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                padding: 18px 30px;
+                border-bottom: 1px solid #1a1a1a;
+            }
+
+            .nav-links li a {
+                font-size: 13px;
+            }
+
+            .menu-toggle {
+                display: block;
+                flex: 1;
+                z-index: 101;
+            }
+
+            .logo-container {
+                flex: 2;
+                justify-content: center;
+            }
+
+            .nav-icons {
+                flex: 1;
+                justify-content: flex-end;
+                gap: 15px;
+            }
+
+            .icon-box {
+                font-size: 16px;
+            }
+
+            .top-bar {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding: 10px;
+            }
+
+            .top-bar::-webkit-scrollbar {
+                display: none;
+            }
+
+            .slider-container {
+                height: auto;
+                aspect-ratio: 16 / 9;
+            }
+
+            .arrow {
+                font-size: 18px;
+                padding: 6px 10px;
+            }
+
+            .dots-container {
+                bottom: 10px;
+            }
+
+            .dot {
+                width: 8px;
+                height: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Announcement Bar (Auto Moving) -->
+    <div class="top-bar">
+        <div class="marquee-content">
+            <!-- First Set -->
+            <span><i class="fas fa-truck"></i> FREE NATIONWIDE EXPRESS DELIVERY</span>
+            <span><i class="fas fa-gem"></i> SHAH JI WATCHES - ROYAL LUXURY</span>
+            <span><i class="fas fa-certificate"></i> 100% ORIGINAL &amp; CERTIFIED</span>
+            <span><i class="fas fa-shield-alt"></i> 24 MONTHS OFFICIAL WARRANTY</span>
+            <span><i class="fas fa-phone-alt"></i> HELPLINE: +92 300 1234567</span>
+
+            <!-- Second Set (Same as above, for smooth infinite loop) -->
+            <span><i class="fas fa-truck"></i> FREE NATIONWIDE EXPRESS DELIVERY</span>
+            <span><i class="fas fa-gem"></i> SHAH JI WATCHES - ROYAL LUXURY</span>
+            <span><i class="fas fa-certificate"></i> 100% ORIGINAL &amp; CERTIFIED</span>
+            <span><i class="fas fa-shield-alt"></i> 24 MONTHS OFFICIAL WARRANTY</span>
+            <span><i class="fas fa-phone-alt"></i> HELPLINE: +92 300 1234567</span>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <!-- Hamburger Menu (Visible on Mobile) -->
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- LOGO PLACEMENT -->
+        <div class="logo-container">
+            <a href="index.html" class="logo-text">
+                <img src="media/logo.webp" alt="Shah Ji Watches Logo" fetchpriority="high">
+            </a>
+        </div>
+
+        <!-- Desktop Nav Links -->
+        <ul class="nav-links">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#popular">MOST POPULAR</a></li>
+            <li><a href="#collections">COLLECTIONS</a></li>
+            <li><a href="#about">ABOUT US</a></li>
+            <li><a href="#contact">CONTACT US</a></li>
+        </ul>
+
+        <!-- Right Side Icons -->
+        <div class="nav-icons">
+            <div class="icon-box"><i class="fas fa-search"></i></div>
+            <div class="icon-box">
+                <i class="far fa-heart"></i>
+                <span class="badge">0</span>
+            </div>
+            <div class="icon-box">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="badge">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Slider Section -->
+    <section class="slider-container" id="home">
+        <button class="arrow prev-arrow" onclick="moveSlide(-1)" aria-label="Previous Slide"><i
+                class="fas fa-chevron-left"></i></button>
+        <button class="arrow next-arrow" onclick="moveSlide(1)" aria-label="Next Slide"><i
+                class="fas fa-chevron-right"></i></button>
+
+        <!-- Slides Wrapper -->
+        <div class="slides" id="slideWrapper">
+            <div class="slide">
+                <img src="media/banner_1.webp" alt="Shah Ji Watches Royal Heritage" fetchpriority="high">
+            </div>
+            <div class="slide">
+                <img src="media/banner_2.webp" alt="Shah Ji Watches Signature Luxury" fetchpriority="high">
+            </div>
+            <div class="slide">
+                <img src="media/banner_3.webp" alt="Shah Ji Watches Masterpieces" fetchpriority="high">
+            </div>
+        </div>
+
+        <!-- Animated Dots -->
+        <div class="dots-container">
+            <div class="dot active" onclick="currentSlide(0)"></div>
+            <div class="dot" onclick="currentSlide(1)"></div>
+            <div class="dot" onclick="currentSlide(2)"></div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Floating Icon -->
+    <a href="https://wa.me/923001234567" class="whatsapp-btn" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript for Hero Slider & Mobile Menu -->
+    <script>
+        let slideIndex = 0;
+        const totalSlides = 3;
+        const slideWrapper = document.getElementById("slideWrapper");
+        const dots = document.getElementsByClassName("dot");
+        let autoSlideInterval;
+
+        function updateSlider() {
+            let percentage = slideIndex * -(100 / totalSlides);
+            slideWrapper.style.transform = `translateX(${percentage}%)`;
+
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+            if (dots[slideIndex]) {
+                dots[slideIndex].classList.add("active");
+            }
+        }
+
+        function moveSlide(step) {
+            slideIndex += step;
+            if (slideIndex >= totalSlides) { slideIndex = 0; }
+            if (slideIndex < 0) { slideIndex = totalSlides - 1; }
+            updateSlider();
+            resetSliderTimer();
+        }
+
+        function currentSlide(index) {
+            slideIndex = index;
+            updateSlider();
+            resetSliderTimer();
+        }
+
+        function startHeroAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                slideIndex++;
+                if (slideIndex >= totalSlides) { slideIndex = 0; }
+                updateSlider();
+            }, 4000);
+        }
+
+        function resetSliderTimer() {
+            clearInterval(autoSlideInterval);
+            startHeroAutoSlide();
+        }
+
+        startHeroAutoSlide();
+
+        // Mobile Menu Toggle Logic
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const menuIcon = document.querySelector('.menu-toggle i');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            if (navLinks.classList.contains('active')) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            } else {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+    </script>
+
+    <!-- === PART 2: Most Popular 3D Slider Section === -->
+    <section class="most-popular" id="popular">
+        <h2>Most Popular</h2>
+
+        <div class="carousel">
+            <!-- Slide 1 -->
+            <div class="carousel-item">
+                <img src="media/mp_product_1.webp" alt="Shah Ji Phantom Skeleton Noir" fetchpriority="high">
+                <div class="item-details">
+                    <h3 class="watch-title">Shah Ji Phantom Skeleton Noir</h3>
+                    <p class="watch-price">Rs. 55,000</p>
+                    <button class="btn-buy">BUY NOW</button>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+                <img src="media/mp_product_2.webp" alt="Shah Ji Royal Gold Sovereign" fetchpriority="high">
+                <div class="item-details">
+                    <h3 class="watch-title">Shah Ji Royal Gold Sovereign</h3>
+                    <p class="watch-price">Rs. 68,000</p>
+                    <button class="btn-buy">BUY NOW</button>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+                <img src="media/mp_product_3.webp" alt="Shah Ji Classic Silver Minimalist" fetchpriority="high">
+                <div class="item-details">
+                    <h3 class="watch-title">Shah Ji Classic Silver Minimalist Edition</h3>
+                    <p class="watch-price">Rs. 45,000</p>
+                    <button class="btn-buy">BUY NOW</button>
+                </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="carousel-item">
+                <img src="media/mp_product_4.webp" alt="Shah Ji Onyx Prestige Edition" fetchpriority="high">
+                <div class="item-details">
+                    <h3 class="watch-title">Shah Ji Onyx Prestige Edition</h3>
+                    <p class="watch-price">Rs. 52,000</p>
+                    <button class="btn-buy">BUY NOW</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel Controls -->
+        <div class="carousel-controls">
+            <button class="ctrl-btn prev-btn" onclick="moveCarousel(-1)" aria-label="Previous"><i
+                    class="fas fa-arrow-left"></i></button>
+            <button class="ctrl-btn next-btn" onclick="moveCarousel(1)" aria-label="Next"><i
+                    class="fas fa-arrow-right"></i></button>
+        </div>
+    </section>
+
+    <!-- CSS For Part 2 -->
+    <style>
+        .most-popular {
+            background-color: #ffffff;
+            padding: 80px 0;
+            text-align: center;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .most-popular h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: #000;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: height 0.4s ease-in-out;
+        }
+
+        .carousel-item {
+            position: absolute;
+            transition: all 0.6s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 260px;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+            max-height: 250px;
+            object-fit: contain;
+            transition: all 0.6s ease-in-out;
+            filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.2));
+        }
+
+        .item-details {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease-in-out;
+            pointer-events: none;
+            margin-top: 20px;
+        }
+
+        .watch-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 5px;
+            transition: margin 0.3s ease;
+        }
+
+        .watch-price {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--gold-hover);
+            margin-bottom: 15px;
+        }
+
+        .btn-buy {
+            background-color: var(--gold-hover);
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-buy:hover {
+            background-color: #000;
+            color: var(--gold);
+        }
+
+        /* 3D Carousel Effects */
+        .carousel-item.active {
+            z-index: 10;
+            transform: translateX(0) scale(1.15);
+        }
+
+        .carousel-item.active img {
+            filter: drop-shadow(0px 15px 25px rgba(0, 0, 0, 0.4));
+        }
+
+        .carousel-item.active .item-details {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .carousel-item.prev {
+            z-index: 5;
+            transform: translateX(-220px) scale(0.8);
+            opacity: 0.5;
+        }
+
+        .carousel-item.prev img {
+            filter: blur(6px) drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1));
+        }
+
+        .carousel-item.next {
+            z-index: 5;
+            transform: translateX(220px) scale(0.8);
+            opacity: 0.5;
+        }
+
+        .carousel-item.next img {
+            filter: blur(6px) drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1));
+        }
+
+        .carousel-item.hidden {
+            z-index: 1;
+            transform: translateX(0) scale(0.4);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .carousel-controls {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .ctrl-btn {
+            background: transparent;
+            border: 1px solid var(--gold-hover);
+            color: var(--gold-hover);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ctrl-btn:hover {
+            background: var(--gold-hover);
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-item.prev {
+                transform: translateX(-120px) scale(0.7);
+            }
+
+            .carousel-item.next {
+                transform: translateX(120px) scale(0.7);
+            }
+        }
+    </style>
+
+    <!-- JavaScript For 3D Slider & Dynamic Gap -->
+    <script>
+        const sliderItems = document.querySelectorAll('.carousel-item');
+        let currentItem = 0;
+        let autoSlideTimer;
+
+        function updateCarousel() {
+            sliderItems.forEach((item, index) => {
+                item.classList.remove('active', 'prev', 'next', 'hidden');
+
+                if (index === currentItem) {
+                    item.classList.add('active');
+
+                    const titleElement = item.querySelector('.watch-title');
+                    const titleLength = titleElement.innerText.length;
+                    let dynamicGap = 5 + (titleLength * 1.2);
+                    if (dynamicGap > 45) dynamicGap = 45;
+                    if (dynamicGap < 5) dynamicGap = 5;
+                    titleElement.style.marginBottom = dynamicGap + 'px';
+
+                } else if (index === (currentItem - 1 + sliderItems.length) % sliderItems.length) {
+                    item.classList.add('prev');
+                } else if (index === (currentItem + 1) % sliderItems.length) {
+                    item.classList.add('next');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+
+            setTimeout(() => {
+                const activeItem = document.querySelector('.carousel-item.active');
+                const carouselContainer = document.querySelector('.carousel');
+
+                if (activeItem && carouselContainer) {
+                    const activeHeight = activeItem.offsetHeight;
+                    carouselContainer.style.height = (activeHeight * 1.15) + 50 + 'px';
+                }
+            }, 50);
+        }
+
+        function moveCarousel(direction) {
+            currentItem = (currentItem + direction + sliderItems.length) % sliderItems.length;
+            updateCarousel();
+            resetCarouselTimer();
+        }
+
+        function start3DAutoSlide() {
+            autoSlideTimer = setInterval(() => {
+                currentItem = (currentItem + 1) % sliderItems.length;
+                updateCarousel();
+            }, 3000);
+        }
+
+        function resetCarouselTimer() {
+            clearInterval(autoSlideTimer);
+            start3DAutoSlide();
+        }
+
+        updateCarousel();
+        start3DAutoSlide();
+    </script>
+
+    <!-- === PART 3: Boxed Catalog Section with Ratings === -->
+    <section class="boxed-catalog" id="collections">
+        <h2 class="catalog-heading">Our Collections</h2>
+
+        <div class="boxed-grid">
+            <!-- Product 1 -->
+            <div class="boxed-card">
+                <div class="card-badge">-15%</div>
+                <div class="card-img-box">
+                    <img src="media/mp_product_1.webp" alt="Shah Ji Classic Gold & Black">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">Shah Ji Classic Gold &amp; Noir</h3>
+                    <div class="card-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="review-count">(24)</span>
+                    </div>
+                    <div class="card-price">
+                        <span class="old-price">Rs. 18,000</span>
+                        <span class="new-price">Rs. 15,300</span>
+                    </div>
+                    <button class="btn-outline-cart">ADD TO CART</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="boxed-card">
+                <div class="card-img-box">
+                    <img src="media/mp_product_2.webp" alt="Shah Ji GMT Chronometer">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">Shah Ji GMT Chronometer Elite</h3>
+                    <div class="card-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="review-count">(41)</span>
+                    </div>
+                    <div class="card-price">
+                        <span class="new-price">Rs. 12,500</span>
+                    </div>
+                    <button class="btn-outline-cart">ADD TO CART</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="boxed-card">
+                <div class="card-img-box">
+                    <img src="media/mp_product_3.webp" alt="Shah Ji Emerald Silver">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">Shah Ji Emerald Silver Edition</h3>
+                    <div class="card-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span class="review-count">(12)</span>
+                    </div>
+                    <div class="card-price">
+                        <span class="new-price">Rs. 22,000</span>
+                    </div>
+                    <button class="btn-outline-cart">ADD TO CART</button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="boxed-card">
+                <div class="card-badge">NEW</div>
+                <div class="card-img-box">
+                    <img src="media/mp_product_4.webp" alt="Shah Ji Phantom Skeleton Elite">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">Shah Ji Phantom Skeleton Elite</h3>
+                    <div class="card-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="review-count">(89)</span>
+                    </div>
+                    <div class="card-price">
+                        <span class="new-price">Rs. 35,000</span>
+                    </div>
+                    <button class="btn-outline-cart">ADD TO CART</button>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="boxed-card">
+                <div class="card-badge">HOT</div>
+                <div class="card-img-box">
+                    <img src="media/mp_product_5.webp" alt="Shah Ji Titanium Series Pro">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">Shah Ji Titanium Series Pro</h3>
+                    <div class="card-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="review-count">(156)</span>
+                    </div>
+                    <div class="card-price">
+                        <span class="old-price">Rs. 90,000</span>
+                        <span class="new-price">Rs. 80,000</span>
+                    </div>
+                    <button class="btn-outline-cart">ADD TO CART</button>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="boxed-card">
+                <div class="card-img-box">
+                    <img src="media/mp_product_6.webp" alt="Shah Ji Vintage Royal Leather">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">Shah Ji Vintage Royal Leather</h3>
+                    <div class="card-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                        <span class="review-count">(34)</span>
+                    </div>
+                    <div class="card-price">
+                        <span class="new-price">Rs. 45,000</span>
+                    </div>
+                    <button class="btn-outline-cart">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS For Boxed Catalog -->
+    <style>
+        .boxed-catalog {
+            padding: 60px 5%;
+            background-color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .catalog-heading {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 40px;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+        }
+
+        .boxed-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .boxed-card {
+            border: 1px solid #eaeaea;
+            border-radius: 6px;
+            padding: 15px;
+            background-color: #fff;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .boxed-card:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: #000;
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 4px;
+            z-index: 10;
+            letter-spacing: 0.5px;
+        }
+
+        .card-img-box {
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .card-img-box img {
+            max-width: 100%;
+            height: 220px;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .boxed-card:hover .card-img-box img {
+            transform: scale(1.06);
+        }
+
+        .card-details {
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #111;
+            margin-bottom: 8px;
+        }
+
+        .card-rating {
+            color: #d4af37;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .card-rating .review-count {
+            color: #888;
+            margin-left: 5px;
+        }
+
+        .card-price {
+            margin-bottom: 15px;
+        }
+
+        .old-price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 13px;
+            margin-right: 8px;
+        }
+
+        .new-price {
+            color: var(--gold-hover);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .btn-outline-cart {
+            width: 100%;
+            background-color: transparent;
+            color: #000;
+            border: 1px solid #000;
+            padding: 12px 0;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-cart:hover {
+            background-color: #000;
+            color: var(--gold);
+            border-color: #000;
+        }
+
+        @media (max-width: 768px) {
+            .boxed-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .boxed-card {
+                padding: 10px;
+            }
+
+            .card-img-box {
+                padding: 10px;
+            }
+
+            .card-img-box img {
+                height: 150px;
+            }
+
+            .card-title {
+                font-size: 13px;
+            }
+
+            .new-price {
+                font-size: 14px;
+            }
+
+            .old-price {
+                font-size: 11px;
+            }
+
+            .btn-outline-cart {
+                padding: 10px 0;
+                font-size: 11px;
+            }
+        }
+    </style>
+
+    <!-- === PART 4: About Us & Contact Us Section === -->
+
+    <!-- About Us Section -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <div class="about-text">
+                <h4 class="sub-heading">Our Heritage</h4>
+                <h2 class="main-heading">Crafting Timeless <span>Prestige</span></h2>
+                <p>Welcome to <strong>SHAH JI WATCHES</strong>, where timeless prestige meets pinnacle horology. For
+                    years, we have set the benchmark in curating masterfully crafted timepieces that celebrate power,
+                    style, and uncompromising refinement.</p>
+                <p>Every watch in our signature collection undergoes rigorous precision verification to ensure unmatched
+                    reliability, breathtaking aesthetic excellence, and lifelong companionship.</p>
+                <a href="#collections" class="btn-gold-solid">Discover The Collection</a>
+            </div>
+            <div class="about-image">
+                <img src="media/about.webp" alt="Shah Ji Watches Luxury Heritage">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-header">
+            <h2>Get In Touch</h2>
+            <div class="title-underline"></div>
+            <p>Our royal concierge team is here to assist you with any inquiries &amp; private orders.</p>
+        </div>
+
+        <div class="contact-container">
+            <!-- Contact Info (Left Side) -->
+            <div class="contact-info">
+                <div class="info-box">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Visit Our Flagship Boutique</h4>
+                        <p>Shah Ji Luxury Towers, MM Alam Road, Gulberg III, Lahore</p>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>Call &amp; WhatsApp</h4>
+                        <p>Direct: +92 300 1234567 | Toll Free: 1800 228 668</p>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email Us</h4>
+                        <p>concierge@shahjiwatches.com</p>
+                    </div>
+                </div>
+
+                <!-- Social Media Icons -->
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://wa.me/923001234567" target="_blank" aria-label="WhatsApp"><i
+                            class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <!-- Contact Form (Right Side) -->
+            <div class="contact-form-box">
+                <form action="#"
+                    onsubmit="event.preventDefault(); alert('Thank you for contacting Shah Ji Watches! Our concierge will connect with you shortly.');">
+                    <div class="input-group">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <input type="text" placeholder="Subject" class="full-width" required>
+                    <textarea placeholder="Your Message / Watch Inquiry..." rows="5" required></textarea>
+                    <button type="submit" class="btn-submit">SEND MESSAGE</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS For Part 4 -->
+    <style>
+        /* === About Us Section === */
+        .about-section {
+            padding: 100px 5%;
+            background-color: #fcfcfc;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text .sub-heading {
+            color: var(--gold);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .about-text .main-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            color: #111;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .about-text .main-heading span {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .about-text p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .btn-gold-solid {
+            display: inline-block;
+            background-color: var(--gold);
+            color: #000;
+            padding: 14px 32px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .btn-gold-solid:hover {
+            background-color: #000;
+            color: var(--gold);
+        }
+
+        .about-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: -15px 15px 0px 0px var(--gold);
+        }
+
+        /* === Contact Us Section === */
+        .contact-section {
+            padding: 80px 5%;
+            background-color: #0d0d0d;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .contact-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            letter-spacing: 1px;
+        }
+
+        .contact-header .title-underline {
+            width: 60px;
+            height: 2px;
+            background-color: var(--gold);
+            margin: 15px auto 0;
+        }
+
+        .contact-header p {
+            color: #aaa;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .contact-container {
+            display: flex;
+            max-width: 1100px;
+            margin: 0 auto;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .info-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .info-box i {
+            color: var(--gold);
+            font-size: 24px;
+            margin-top: 5px;
+        }
+
+        .info-box h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .info-box p {
+            font-size: 14px;
+            color: #bbb;
+            line-height: 1.6;
+        }
+
+        .social-icons {
+            margin-top: 10px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: #1a1a1a;
+            color: var(--gold);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--gold);
+            color: #000;
+        }
+
+        /* Contact Form */
+        .contact-form-box {
+            flex: 1.2;
+            background-color: #161616;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            border: 1px solid #222;
+        }
+
+        .contact-form-box form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .input-group input {
+            flex: 1;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            background-color: #222;
+            border: 1px solid #333;
+            color: #fff;
+            padding: 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            outline: none;
+            transition: border 0.3s ease;
+            border-radius: 3px;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: var(--gold);
+        }
+
+        .btn-submit {
+            background-color: var(--gold);
+            color: #000;
+            border: none;
+            padding: 15px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .btn-submit:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        @media (max-width: 900px) {
+
+            .about-container,
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .about-image {
+                margin-top: 30px;
+            }
+
+            .input-group {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 60px 15px;
+            }
+
+            .about-text .main-heading {
+                font-size: 32px;
+            }
+
+            .contact-section {
+                padding: 60px 15px;
+            }
+
+            .contact-form-box {
+                padding: 25px;
+            }
+        }
+    </style>
+
+    <!-- === PART 5: Professional Footer Section === -->
+    <footer class="footer-section">
+        <!-- Newsletter Section -->
+        <div class="footer-top">
+            <div class="newsletter-box">
+                <h3>Join The Shah Ji Royal Club</h3>
+                <p>Subscribe to receive privileged announcements, private boutique releases, and VIP collector offers.
+                </p>
+                <form action="#" class="newsletter-form"
+                    onsubmit="event.preventDefault(); alert('Welcome to Shah Ji Royal Club! You are now subscribed.');">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit">SUBSCRIBE</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Main Footer Links -->
+        <div class="footer-main">
+            <!-- Column 1: Brand Info -->
+            <div class="footer-col brand-col">
+                <h2 class="footer-logo">SHAH JI WATCHES</h2>
+                <p>Elevating your presence with masterfully engineered timepieces. Royal prestige, unmatched precision,
+                    and iconic luxury for every moment.</p>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#popular">Most Popular</a></li>
+                    <li><a href="#collections">Shop Collection</a></li>
+                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Customer Care -->
+            <div class="footer-col">
+                <h4>Customer Care</h4>
+                <ul>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Warranty &amp; Service</a></li>
+                    <li><a href="#">Authenticity Guarantee</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Legal -->
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 Shah Ji Watches. All Rights Reserved.</p>
+            <div class="payment-icons">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-paypal"></i>
+                <i class="fab fa-apple-pay"></i>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CSS For Part 5 -->
+    <style>
+        .footer-section {
+            background-color: #070707;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            border-top: 1px solid #1f1f1f;
+        }
+
+        .footer-top {
+            border-bottom: 1px solid #1f1f1f;
+            padding: 60px 5%;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .newsletter-box {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .newsletter-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: var(--gold);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .newsletter-box p {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 25px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            width: 100%;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px 20px;
+            background-color: #121212;
+            border: 1px solid #333;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            outline: none;
+            transition: border 0.3s ease;
+            border-radius: 2px 0 0 2px;
+        }
+
+        .newsletter-form input:focus {
+            border-color: var(--gold);
+        }
+
+        .newsletter-form button {
+            padding: 0 30px;
+            background-color: var(--gold);
+            color: #000;
+            border: 1px solid var(--gold);
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 0 2px 2px 0;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #fff;
+            border-color: #fff;
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .brand-col p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-top: 15px;
+            max-width: 320px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-size: 26px;
+            letter-spacing: 2px;
+        }
+
+        .footer-col h4 {
+            font-size: 15px;
+            margin-bottom: 25px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            text-decoration: none;
+            color: #aaa;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1a1a1a;
+            padding: 25px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-bottom p {
+            color: #777;
+            font-size: 13px;
+        }
+
+        .payment-icons {
+            display: flex;
+            gap: 15px;
+            font-size: 24px;
+            color: #777;
+        }
+
+        .payment-icons i {
+            transition: color 0.3s ease;
+        }
+
+        .payment-icons i:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 900px) {
+            .footer-main {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .newsletter-form {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .newsletter-form input {
+                border-radius: 2px;
+            }
+
+            .newsletter-form button {
+                padding: 15px;
+                width: 100%;
+                border-radius: 2px;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .brand-col p {
+                margin: 15px auto;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+            }
+        }
+    </style>
+</body>
+
+</html>
